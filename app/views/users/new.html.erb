@@ -1,0 +1,8 @@
+<p class="create-user">User information:</p>
+<%= simple_form_for @user do |f| %>
+	<%= f.input :username, label: false, placeholder: 'Username' %>
+	<%= f.input :email, label: false, placeholder: 'Email' %>
+	<%= f.input :password,  label: false, placeholder: 'Password' %>
+	<%= f.input :password_confirmation,  label: false, placeholder: 'Password Confirmation' %>
+	<%= f.submit %>
+<% end %>

@@ -5,6 +5,7 @@ gem 'rails', '4.0.0'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
+gem 'simple_form'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -20,11 +21,15 @@ gem 'coffee-rails', '~> 4.0.0'
 
 group :test, :development do 
 	gem 'rspec-rails'
-	gem 'factory_girl'
+	gem 'factory_girl_rails'
 	gem 'capybara'
 	gem 'shoulda-matchers'
 end
 
+group :test do 
+	gem 'launchy'
+	gem 'pry'
+end
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
