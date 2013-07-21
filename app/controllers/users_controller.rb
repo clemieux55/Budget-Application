@@ -6,7 +6,6 @@ class UsersController < ApplicationController
 
 	def create
 		params.permit!
-		binding.pry
 		@user = User.new(params[:user])
 		if @user.save
 			flash[:notice] = "Welcome #{@user}"
