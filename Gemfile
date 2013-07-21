@@ -22,6 +22,7 @@ group :test, :development do
 	gem 'rspec-rails'
 	gem 'factory_girl'
 	gem 'capybara'
+	gem 'shoulda-matchers'
 end
 
 # Use jquery as the JavaScript library
