@@ -3,7 +3,7 @@
 	<br>
 		Signed In As: <%= current_user.email %>
 	<br>
-		<%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
+		<%= link_to 'Sign out', destroy_user_session_path, :method => :delete, id: 'sign_out' %>
 	<% else %>
 		<%= link_to 'Sign In', new_user_session_path, id: 'Sign_in' %>
 <% end %>
