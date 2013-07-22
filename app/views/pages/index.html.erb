@@ -1,1 +1,9 @@
-<%= link_to 'Create Account', new_user_path, :id => 'create_account_link' %>
+<%= link_to 'Create Account', new_user_registration_path, :id => 'create_account_link' %>
+<% if user_signed_in? %>
+	<br>
+		Signed In As: <%= current_user.email %>
+	<br>
+		<%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
+	<% else %>
+		<%= link_to 'Sign In', new_user_session_path, id: 'Sign_in' %>
+<% end %>
