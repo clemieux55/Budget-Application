@@ -1,18 +1,17 @@
 require 'spec_helper'
 
-feature 'Sign out', %q{
-	As a user
-	I want a link to sign on
-	So I can end my user session
+feature 'User can add an item to the budget',%{
+	As a user 
+	I can add an item to the budget
+	So I can modify my budget
 } do 
 
 	let(:user) { FactoryGirl.create(:user) }
 
-	scenario 'User signs out do' do 
+	scenario 'Adding and item to the budget' do 
 		sign_in_as user
-		click_on 'sign_out'
-		expect(current_path).to eql(root_path)
-		expect(page).to have_content('Sign In')
+		expect(page).to have_content('New Budget Item')
+		expect(page).to have_link('new_budget_item')
 	end
 
 	def sign_in_as(user)
