@@ -8,15 +8,15 @@ feature 'Create user', %q{
 } do 
 
 let(:user) { FactoryGirl.build(:user) }
-	scenario 'Creating a user ' do 
+	scenario 'Creating a user' do 
 		prev_count = User.count
 		visit root_path
 		click_on 'create_account_link'
-		fill_in 'user_username', with: user.username
+		fill_in 'user_email', with: user.email
 		fill_in 'user_password', with: user.password
 		fill_in 'user_password_confirmation', with: user.password
-		fill_in 'user_email', with: user.email
-		click_on 'Create User'
+		click_on 'Create Account'
 		expect(User.count).to eql(prev_count + 1)
+		expect(current_path).to eql(root_path)
 	end
 end
