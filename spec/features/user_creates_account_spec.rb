@@ -15,7 +15,7 @@ let(:user) { FactoryGirl.build(:user) }
 		fill_in 'user_email', with: user.email
 		fill_in 'user_password', with: user.password
 		fill_in 'user_password_confirmation', with: user.password
-		click_on 'Create Account'
+		click_button 'Create'
 		expect(User.count).to eql(prev_count + 1)
 		expect(current_path).to eql(root_path)
 	end
