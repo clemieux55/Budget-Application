@@ -1,4 +1,4 @@
-class BudgetList < ActiveRecord::Base 
+class ListItem < ActiveRecord::Base 
 
 	validates_presence_of :budget_item, null: false
 	validates_presence_of :budget_amount, null: false

@@ -8,11 +8,4 @@
 		<%= link_to 'Sign In', new_user_session_path, id: 'Sign_in' %>
 <% end %>
 
-<div class="new-budget-item">
-	<p>New Budget Item :</p>
-	<%= simple_form_for :budgetlist do |f| %>
-		<%= f.input :budget_item, placeholder: 'Item', label: false %>
-		<%= f.input :budget_amount, label: false, placeholder: 'Amount' %>
-		<%= f.submit 'Add To List' %>
-	<% end %>
-</div>
+	<%= link_to 'Add Item to List', new_listitem_path, id: 'add_list_item' %>
