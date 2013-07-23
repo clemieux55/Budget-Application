@@ -11,7 +11,7 @@ feature 'User can add an item to the budget',%{
 
 	before :each do 
 		sign_in_as user
-		click_on 'add_list_item'
+		click_on 'new_item'
 	end
 
 	scenario 'Adding and item to the budget' do 

@@ -15,16 +15,70 @@
 
   	<title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
 
-  	<%= stylesheet_link_tag    "application" %>
+  	<%= stylesheet_link_tag "application" %>
   	<%= javascript_include_tag "vendor/custom.modernizr" %>
     <%= csrf_meta_tags %>
   </head>
+  <div class="container">
+    <body>
+  <header>
+  <nav class="top-bar">
+    <ul class="title-area">
+      <li class="name">
+        <h1><a><%=link_to 'Home', root_path %></a></h1>
+      </li>
 
-  <body>
+      <li class="toggle-topbar">
+       </li>
+    </ul>
+
+    <% unless signed_in? %>
+      <section class="top-bar-section">
+        <ul class="left">
+          <li class="name">
+            <%= link_to 'Sign In', new_user_session_path, id: 'Sign_in' %>
+          </li>
+          <li class="name">
+            <%= link_to 'Create Account', new_user_registration_path, :id => 'create_account_link' %>
+          </li>
+        </ul>
+      </section>
+    <% end %>
+       
+
+   <% if signed_in? %>
+    <section class="top-bar-section">
+      <ul class="left">
+        <li class="name">
+          <%= link_to 'New Item', new_listitem_path, id: 'new_item' %>
+        </li>
+        <li>
+          <%= link_to 'Sign out', destroy_user_session_path, method: :delete, id: 'sign_out' %>
+        </li>
+      </ul>
+
+       <ul class="right"> 
+        <li class="has-dropdown not-click">
+          <a><%= current_user.email %></a>
+          <ul class="dropdown drop3">
+            <li><label>Account options</label></li>
+            <li>
+              <%= link_to 'Edit', edit_user_registration_path %>
+           </li>
+          </ul>
+        </li>
+      </ul>
+         </section>
+    <% end %>
+
+  </nav>
+</header>
+
 
     <%= yield %>
 
     
     <%= javascript_include_tag "application" %>
   </body>
+</div>
 </html>

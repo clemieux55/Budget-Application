@@ -1,11 +1,5 @@
-require 'pry'
-
-class ListitemsController < ActionController::Base
-	helper_method :current_user
-
-	def new
-		@listitem = ListItem.new
-	end
+class ListitemsController < ApplicationController
+	helper_method :current_user, :signed_in?
 
 	def create 
 		params.permit!

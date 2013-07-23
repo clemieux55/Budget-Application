@@ -6,12 +6,14 @@ gem 'rails', '4.0.0'
 # Use postgresql as the database for Active Record
 gem 'pg'
 gem 'simple_form'
-gem 'devise'
+gem 'devise', '~> 3.0.0.rc'
 # Use SCSS for stylesheets
-gem 'zurb-foundation'
-gem 'compass-rails'
-gem 'sass-rails',   '~> 4.0.0'
+
+gem 'sass-rails'
 gem 'coffee-rails', '~> 4.0.0'
+gem 'zurb-foundation'
+
+
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
