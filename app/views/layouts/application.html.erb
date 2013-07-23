@@ -1,17 +1,84 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Budget</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+  <head>
+  	<meta charset="utf-8" />
 
-<%= yield %>
+  	<!-- Uncomment to make IE8 render like IE7 -->
+  	<!-- <meta http-equiv="X-UA-Compatible" content="IE=7" /> -->
+
+  	<!-- Set the viewport width to device width for mobile -->
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  	<title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+
+  	<%= stylesheet_link_tag "application" %>
+  	<%= javascript_include_tag "vendor/custom.modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <div class="container">
+    <body>
+  <header>
+  <nav class="top-bar">
+    <ul class="title-area">
+      <li class="name">
+        <h1><a><%=link_to 'Home', root_path %></a></h1>
+      </li>
+
+      <li class="toggle-topbar">
+       </li>
+    </ul>
+
+    <% unless signed_in? %>
+      <section class="top-bar-section">
+        <ul class="left">
+          <li class="name">
+            <%= link_to 'Sign In', new_user_session_path, id: 'Sign_in' %>
+          </li>
+          <li class="name">
+            <%= link_to 'Create Account', new_user_registration_path, :id => 'create_account_link' %>
+          </li>
+        </ul>
+      </section>
+    <% end %>
+       
+
+   <% if signed_in? %>
+    <section class="top-bar-section">
+      <ul class="left">
+        <li class="name">
+          <%= link_to 'New Item', new_listitem_path, id: 'new_item' %>
+        </li>
+        <li>
+          <%= link_to 'Sign out', destroy_user_session_path, method: :delete, id: 'sign_out' %>
+        </li>
+      </ul>
+
+       <ul class="right"> 
+        <li class="has-dropdown not-click">
+          <a><%= current_user.email %></a>
+          <ul class="dropdown drop3">
+            <li><label>Account options</label></li>
+            <li>
+              <%= link_to 'Edit', edit_user_registration_path %>
+           </li>
+          </ul>
+        </li>
+      </ul>
+         </section>
+    <% end %>
+
+  </nav>
+</header>
 
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-</body>
+    <%= yield %>
+
+    
+    <%= javascript_include_tag "application" %>
+  </body>
+</div>
 </html>
