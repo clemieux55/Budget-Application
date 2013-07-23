@@ -23,7 +23,7 @@ feature 'User can add an item to the budget',%{
 		fill_in 'list_item_budget_amount', with: item.budget_amount
 		click_on 'add_to_list'
 		expect(ListItem.where(item.budget_item)).to be_true
-		expect(current_path).to eql()
+		expect(current_path).to eql(root_path)
 	end
 
 	def sign_in_as(user)
