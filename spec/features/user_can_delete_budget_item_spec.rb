@@ -7,11 +7,11 @@ feature "Delete Listitem", %q{
 } do 
 
 let(:user) { FactoryGirl.create(:user) }
+let!(:item) {	FactoryGirl.create(:list_item, user: user) }
 
-	scenario 'User naviagates to remove Listitem page' do 
+	scenario 'User naviagates to remove Listitem page', focus: true do 
 		sign_in_as user
-		click_on 'Remove'
-		expect(current_path).to eql("listitems#destroy")
+		expect(page).to have_content item.budget_item
 	end
 
 	def sign_in_as(user)

@@ -18,4 +18,6 @@ class ListitemsController < ApplicationController
 	def listitem_params
 		params.require(:list_item).permit(:budget_item, :budget_amount, :user_id )
 	end
+
+
 end

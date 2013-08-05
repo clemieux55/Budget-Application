@@ -1,36 +1,32 @@
-<div class="homepage-list-items">
 	<% if signed_in? %>
 		<div class="row">
-			<div class="row items">
-				<div class="small-3 push-1 columns">
-					<h3>Expense</h3>
-				</div>
-				<div class="small-1 push-3 columns">
-					<h3>Amount</h3>
-				</div><br>
+			<div class="small-2 columns">
+				<h3>Expense</h3>
 			</div>
+			<div class="small-2 columns">
+				<h3>Amount</h3>
+			</div><br>
+		</div>
 
-			<div class="row items">
-			<% @listitem.each do |item| %>
-				<div class="small-3 push-1 columns">
-					<%= item.budget_item %>
-				</div>
-				<div class="small-1 push-3 columns">
-					<%= item.budget_amount %><br>
-				</div><br>
-			<% end %>
+		<div class="row">
+		<% @listitem.each do |item| %>
+			<div class="small-3 columns">
+				<%= link_to item.budget_item, edit_listitem_path(@listitem) %>
 			</div>
+			<div class="small-3 columns">
+				<%= item.budget_amount %>
+			</div><br>
+		<% end %>
+		</div>
 
-			<div class="row items">
-				<br>
-				<div class="total"></div>
-				<div class="small-3 push-1 columns">
-					<h5>Total</h5>
-				</div>
-				<div class="small-1 push-3 columns">
-					<h5><%= @total %></h5>
-				</div><br>
+		<div class="row"><br>
+			<div class="total"></div>
+			<div class="small-2 columns">
+				<h5>Total</h5>
 			</div>
+			<div class="small-2 columns">
+				<h5><%= @total %></h5>
+			</div><br>
 		</div>
 	<% end %>
-</div>
+

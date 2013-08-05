@@ -4,7 +4,6 @@ div.container {
 }
 
 .homepage-list-items {
-	max-width: 500px;
 	border: .2em;
 	border-color: slategrey;
 	border-style: outset;
@@ -19,6 +18,5 @@ div.container {
 .items {
 	text-align: center;
 }
-
 
 
