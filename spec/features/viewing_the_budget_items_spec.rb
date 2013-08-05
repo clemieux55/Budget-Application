@@ -11,7 +11,6 @@ feature 'Viewing the listitems on the homepage', %q{
 
 	scenario 'homepage' do 
 		sign_in_as user
-		save_and_open_page
 		expect(page).to have_content('Expense')
 		expect(page).to have_content('Amount')
 		expect(page).to have_content(item.budget_item)
