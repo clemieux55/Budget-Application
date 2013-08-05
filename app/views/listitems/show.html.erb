@@ -1,0 +1,10 @@
+<div class="row">
+	<div class="small-4 columns">
+		<p>Edit Item Information</p>
+		<%= form_for @listitem, url: {action: "update"} do |update| %>
+			<%= update.text_field :budget_item %>
+			<%= update.text_field :budget_amount %>
+			<%= update.submit "Update Item", :class => "small button success radius" %>
+		<% end %>
+	</div>
+</div>

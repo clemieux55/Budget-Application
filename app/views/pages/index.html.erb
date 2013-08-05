@@ -11,7 +11,8 @@
 		<div class="row">
 		<% @listitem.each do |item| %>
 			<div class="small-3 columns">
-				<%= link_to item.budget_item, edit_listitem_path(@listitem) %>
+				<%= link_to item.budget_item, listitem_path(item), action: 
+				:update %>
 			</div>
 			<div class="small-3 columns">
 				<%= item.budget_amount %>
