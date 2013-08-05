@@ -13,11 +13,25 @@ class ListitemsController < ApplicationController
 		end
 	end
 
+	def show
+		@listitem = ListItem.find(params[:id])
+	end
+
+	def update
+		params.permit!
+		@listitem = ListItem.find(params[:id])
+		if @listitem.update_attributes(params[:list_item])
+			flash[:notice] = "Updated"
+			redirect_to root_path
+		else
+			render action: :new
+		end
+	end
+
 	private
 
 	def listitem_params
 		params.require(:list_item).permit(:budget_item, :budget_amount, :user_id )
 	end
-
 
 end
