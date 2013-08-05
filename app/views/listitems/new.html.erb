@@ -1,8 +1,10 @@
-<div class="new-budget-item">
-	<p>Add Item to List</p>
-	<%= simple_form_for :list_item, url: listitems_path do |f| %>
-		<%= f.input :budget_item, placeholder: 'Item', label: false %>
-		<%= f.input :budget_amount, placeholder: 'Amount', label: false  %>
-		<%= f.submit 'Add To List', :id => "add_to_list" %>
-	<% end %>
+<div class="row">
+	<div class="small-4 columns">
+		<p>Add Item to List</p>
+		<%= simple_form_for :list_item, url: listitems_path do |f| %>
+			<%= f.input :budget_item, placeholder: 'Item', label: false %>
+			<%= f.input :budget_amount, placeholder: 'Amount', label: false  %>
+			<%= f.submit 'Add To List', :id => "add_to_list" %>
+		<% end %>
+	</div>
 </div>
