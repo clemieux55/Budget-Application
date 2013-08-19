@@ -2,11 +2,9 @@ class ListitemsController < ApplicationController
 	helper_method :current_user, :signed_in?
 
 	def create 
-		params.permit!
 		@listitem = ListItem.create(listitem_params)
 		@listitem.user_id = current_user.id
 		if @listitem.save
-			flash[:notice] = "Successfully Created"
 			redirect_to root_path
 		else
 			render action: :new
@@ -17,15 +15,24 @@ class ListitemsController < ApplicationController
 		@listitem = ListItem.find(params[:id])
 	end
 
+	def index 
+		@listitems = ListItem.all
+
+	end
+
 	def update
-		params.permit!
 		@listitem = ListItem.find(params[:id])
 		if @listitem.update_attributes(params[:list_item])
-			flash[:notice] = "Updated"
 			redirect_to root_path
 		else
 			render action: :new
 		end
+	end
+
+	def destroy
+		@listitem = ListItem.find(params[:id])
+		binding.pry
+		redirect_to :action => 'show'
 	end
 
 	private

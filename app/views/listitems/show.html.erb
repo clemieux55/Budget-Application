@@ -7,4 +7,6 @@
 			<%= update.submit "Update Item", :class => "small button success radius" %>
 		<% end %>
 	</div>
+
+	<%= button_to 'Remove Item',{ controller: :listitems, action: :destroy, id: @listitem.id }, method: 'destroy' %>
 </div>

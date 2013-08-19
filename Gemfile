@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby "1.9.3"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
@@ -12,6 +13,7 @@ gem 'devise', '~> 3.0.0.rc'
 gem 'sass-rails'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'zurb-foundation'
+gem 'rails_12factor', group: :production
 
 
 
@@ -28,6 +30,7 @@ group :test, :development do
 	gem 'factory_girl_rails'
 	gem 'capybara'
 	gem 'shoulda-matchers'
+	gem 'jasmine'
 end
 
 group :test do 

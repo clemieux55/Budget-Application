@@ -3,7 +3,7 @@ require 'spec_helper'
 feature 'Create user', %q{
 	As a user
 	I want to create a user account
-	So i can user the application
+	So i can use the application
 
 } do 
 

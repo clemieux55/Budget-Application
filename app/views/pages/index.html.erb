@@ -1,33 +1,45 @@
-	<% if signed_in? %>
-		<div class="row">
-			<div class="small-2 columns">
-				<h3>Expense</h3>
-			</div>
-			<div class="small-2 columns">
-				<h3>Amount</h3>
-			</div><br>
+<% unless signed_in? %>
+	<div class="row">
+		<div class="large-6 columns">
+			<p>Why do you need to use my budget
+				application?
+				If you dont budget your money you spend to much. And when you spend to much your significant other does not approve. If your significant other does not approve you end up in the <span>DOGHOUSE</span>, and you do not want that, do you?</p>
 		</div>
+		<div class="large-6 columns">
+			<image src="dog_house.jpg">
+		</div>
+<% end %>
 
-		<div class="row">
-		<% @listitem.each do |item| %>
-			<div class="small-3 columns">
-				<%= link_to item.budget_item, listitem_path(item), action: 
-				:update %>
-			</div>
-			<div class="small-3 columns">
-				<%= item.budget_amount %>
-			</div><br>
-		<% end %>
-		</div>
+<% if signed_in? %>
+<div class="row">
+	<div class="small-2 columns">
+		<h3>Expense</h3>
+	</div>
+	<div class="small-2 columns">
+		<h3>Amount</h3>
+	</div><br>
+</div>
 
-		<div class="row"><br>
-			<div class="total"></div>
-			<div class="small-2 columns">
-				<h5>Total</h5>
-			</div>
-			<div class="small-2 columns">
-				<h5><%= @total %></h5>
-			</div><br>
-		</div>
+<div class="row">
+	<% @listitem.each do |item| %>
+	<div class="small-3 columns">
+		<%= link_to item.budget_item, listitem_path(item), action: 
+		:update %>
+	</div>
+	<div class="small-3 columns">
+		<%= item.budget_amount %>
+	</div><br>
 	<% end %>
+</div>
+
+<div class="row"><br>
+	<div class="total"></div>
+	<div class="small-2 columns">
+		<h5>Total</h5>
+	</div>
+	<div class="small-2 columns">
+		<h5><%= @total %></h5>
+	</div><br>
+</div>
+<% end %>
 
