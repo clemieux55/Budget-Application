@@ -30,7 +30,6 @@ group :test, :development do
 	gem 'factory_girl_rails'
 	gem 'capybara'
 	gem 'shoulda-matchers'
-	gem 'jasmine'
 end
 
 group :test do 
