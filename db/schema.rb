@@ -11,16 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20130806010745) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "bank_rolls", force: true do |t|
-    t.integer  "balance"
-    t.integer  "transaction_amount"
-    t.datetime "transaction_time"
-    t.integer  "user_id"
+
+  create_table "bankrolls", force: true do |t|
+    t.integer "total"
+    t.integer "user_id"
   end
 
   create_table "list_items", force: true do |t|

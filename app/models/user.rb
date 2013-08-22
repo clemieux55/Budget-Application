@@ -6,6 +6,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
     has_many :listitems
+<<<<<<< HEAD
     has_one :bank_roll
+=======
+    has_one :bankroll
+>>>>>>> bankroll
 
 end
