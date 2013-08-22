@@ -8,12 +8,11 @@ feature "Create bankroll", %Q{
 
 	let(:user) { FactoryGirl.create(:user) }
 
-	scenario "Registered user can create their bankroll amount" do
+	scenario "Registered user can create their bankroll amount", focus: true do
 		sign_in_as user
 		click_on "bankroll"
-		expect(page).to have_content "Amount in your bankroll:"
-		expect(page).to have_content "Add account:"
-		expect(page).to have_link "Complete"
+		expect(page).to have_content "Add Bankroll"
+		expect(page).to have_button "Complete"
 	end
 
 
