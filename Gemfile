@@ -28,6 +28,7 @@ group :test, :development do
 	gem 'factory_girl_rails'
 	gem 'capybara'
 	gem 'shoulda-matchers'
+	gem 'valid_attribute'
 end
 
 group :test do 

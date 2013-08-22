@@ -10,7 +10,7 @@ Budget::Application.routes.draw do
   root 'pages#index'
 
   resources :listitems
-
+  resources :bankrolls
   resources :pages
 
   # Example of regular route:

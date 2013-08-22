@@ -2,7 +2,6 @@ class ListitemsController < ApplicationController
 	helper_method :current_user, :signed_in?
 
 	def create 
-		params.permit!
 		@listitem = ListItem.create(listitem_params)
 		@listitem.user_id = current_user.id
 		if @listitem.save
@@ -18,7 +17,6 @@ class ListitemsController < ApplicationController
 	end
 
 	def update
-		params.permit!
 		@listitem = ListItem.find(params[:id])
 		if @listitem.update_attributes(params[:list_item])
 			flash[:notice] = "Updated"

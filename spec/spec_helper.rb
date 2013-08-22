@@ -9,6 +9,7 @@ require 'shoulda-matchers'
 require 'capybara/rspec'
 require 'launchy'
 require 'pry'
+require 'valid_attribute'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
