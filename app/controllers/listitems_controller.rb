@@ -22,21 +22,19 @@ class ListitemsController < ApplicationController
 
 	def update
 		@listitem = ListItem.find(params[:id])
-		if @listitem.update_attributes(params[:list_item])
+		if @listitem.update_attributes(listitem_params)
 			redirect_to root_path
 		else
-			render action: :new
+			flash[:notice] = "Information incorrect"
 		end
 	end
 
 	def destroy
 		@listitem = ListItem.find(params[:id])
-		binding.pry
 		redirect_to :action => 'show'
 	end
 
 	private
-
 	def listitem_params
 		params.require(:list_item).permit(:budget_item, :budget_amount, :user_id )
 	end

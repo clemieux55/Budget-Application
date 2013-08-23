@@ -13,6 +13,10 @@ Budget::Application.routes.draw do
   resources :bankrolls
   resources :pages
 
+  resources :pages do 
+    resources :listitems, only: [:update]
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
