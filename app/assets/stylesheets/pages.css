@@ -19,4 +19,14 @@ div.container {
 	text-align: center;
 }
 
+.input-fields-without-submit-remember-me {
+	height: 30px;
+}
+
+div.form {
+	float:left;
+	padding: 20px;
+}
+
+
 

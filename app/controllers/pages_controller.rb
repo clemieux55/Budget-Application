@@ -1,12 +1,12 @@
 class PagesController < ApplicationController
-	helper_method :current_user
-
+	helper_method :current_user, :signed_in?
 
   def index
-  	if current_user
-			@listitem = ListItem.where(user_id: current_user.id)
-			@total = total
-  	end
+    if signed_in?
+	    @listitem = ListItem.where(user_id: current_user.id)
+	    @total = total
+      @bankroll = bankroll_amount
+    end
   end
 
   def index_listitem_params
@@ -19,4 +19,14 @@ class PagesController < ApplicationController
   def total
   	@listitem.sum('budget_amount')
   end
+
+  private
+  def bankroll_amount
+    if current_user.bankroll
+      current_user.bankroll.total
+    else
+      0
+    end
+  end
+
 end

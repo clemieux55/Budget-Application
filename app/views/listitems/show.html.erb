@@ -1,9 +1,9 @@
 <div class="row">
-	<div class="small-4 columns">
+	<div class="small-4 columns" id="form-inputs">
 		<p>Edit Item Information</p>
-		<%= form_for @listitem, url: { method: :patch } do |f| %>
-			<%= f.text_field :budget_item %>
-			<%= f.text_field :budget_amount %>
+		<%= simple_form_for @listitem, url: { method: :patch } do |f| %>
+			<%= f.input :budget_item, label: false, placeholder: "Item" %>
+			<%= f.input :budget_amount, label: false, placeholder: "Amount" %>
 			<%= f.submit "Update Item", :class => "small button success radius" %>
 		<% end %>
 	</div>

@@ -10,6 +10,7 @@
 		</div>
 <% end %>
 
+
 <% if signed_in? %>
 <div class="row">
 	<div class="small-2 columns">
@@ -18,6 +19,7 @@
 	<div class="small-2 columns">
 		<h3>Amount</h3>
 	</div><br>
+
 </div>
 
 <div class="row">
@@ -41,5 +43,14 @@
 		<h5><%= @total %></h5>
 	</div><br>
 </div>
+
+<div class="row">
+	<div class="small-2 columns">
+		<h3>Bankroll:<h3> 
+			<%= @bankroll %>
+	</div><br>
+</div>
+<div class="row">
+
 <% end %>
 
