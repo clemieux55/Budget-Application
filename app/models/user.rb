@@ -7,5 +7,7 @@ class User < ActiveRecord::Base
 
     has_many :listitems
     has_one :bankroll
+    has_many :account_activities
+    
 
 end

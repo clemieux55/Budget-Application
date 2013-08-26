@@ -8,7 +8,7 @@ describe Bankroll do
 		it { should belong_to(:user) }
 	end
 
-	describe "methods", focus: true do 
+	describe "methods" do 
 		let!(:user) { FactoryGirl.create(:user) }
 		let!(:bankroll) { Bankroll.create(user: user, total: 100) }
 		it "should add to the total" do 

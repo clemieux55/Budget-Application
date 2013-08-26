@@ -14,7 +14,6 @@ let(:user) { FactoryGirl.create(:user) }
 		sign_in_as user
 		click_on "bankroll"
 		expect(page).to have_content "Add Bankroll: "
-		expect(page).to have_css('#bankroll_total')
 	end
 
 

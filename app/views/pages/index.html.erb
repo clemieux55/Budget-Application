@@ -49,8 +49,9 @@
 		<h3>Bankroll:<h3>
 			<% if current_user.bankroll %>
 				<%= current_user.bankroll.total %>
+				<p>Add</p>
 			<% else %>
-				<% 0 %>
+				<%= 0 %>
 		<% end %>
 	</div><br>
 </div>

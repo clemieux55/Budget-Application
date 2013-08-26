@@ -13,9 +13,12 @@ class PagesController < ApplicationController
   	params.permit(:user_id)
   end
 
+  def add
+    @bankroll = Bankroll.find(current_user)
+    Bankroll.add_to(@bankroll, :amount_to_add)
+  end
 
   private 
-
   def total
   	@listitem.sum('budget_amount')
   end
@@ -23,5 +26,5 @@ class PagesController < ApplicationController
   private
   def bankroll_amount
     bankroll = Bankroll.find(current_user)
-end
+  end
 end

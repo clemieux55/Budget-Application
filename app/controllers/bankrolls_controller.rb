@@ -27,6 +27,11 @@ class BankrollsController < ApplicationController
 		redirect_to root_path
 	end
 
+	def add_to_total(amount)
+		@bankroll = Bankroll.find(current_user)
+		@bankroll.total = @bankroll.total + amount
+	end
+
 	private
 	def bankroll_params
 		params.require(:bankroll).permit(:total)
