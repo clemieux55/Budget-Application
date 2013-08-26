@@ -5,7 +5,7 @@ class PagesController < ApplicationController
     if signed_in?
 	    @listitem = ListItem.where(user_id: current_user.id)
 	    @total = total
-      @bankroll = bankroll_amount
+      @bankroll = Bankroll.where(user_id: current_user.id)
     end
   end
 
@@ -22,11 +22,6 @@ class PagesController < ApplicationController
 
   private
   def bankroll_amount
-    if current_user.bankroll
-      current_user.bankroll.total
-    else
-      0
-    end
-  end
-
+    bankroll = Bankroll.find(current_user)
+end
 end

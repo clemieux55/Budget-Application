@@ -1,16 +1,8 @@
 
 <div class="add_bankroll">
-	<% if current_user.bankroll %>
-		<p>Update Bankroll:</p>
-		<%= simple_form_for @bankroll, controller: :bankrolls, method: :update do |f| %>
-			<%= f.input :total %>
-			<%= f.submit "Complete" %>
-			<% end %>
-		<% else %>
-		<p>Add Bankroll: <p>
-			<%= simple_form_for @bankroll, controller: :bankrolls, action: :create do |f| %>
-			<%= f.input :total %>
-			<%= f.submit "Complete" %>
-	<% end %>
+	<p>Add Bankroll: <p>
+	<%= simple_form_for @bankroll, controller: :bankrolls, action: :create do |f| %>
+		<%= f.input :total %>
+		<%= f.submit "Complete" %>
 	<% end %>
 </div>

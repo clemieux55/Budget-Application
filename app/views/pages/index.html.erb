@@ -46,8 +46,12 @@
 
 <div class="row">
 	<div class="small-2 columns">
-		<h3>Bankroll:<h3> 
-			<%= @bankroll %>
+		<h3>Bankroll:<h3>
+			<% if current_user.bankroll %>
+				<%= current_user.bankroll.total %>
+			<% else %>
+				<% 0 %>
+		<% end %>
 	</div><br>
 </div>
 <div class="row">

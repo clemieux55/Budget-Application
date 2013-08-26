@@ -1,3 +1,5 @@
+require 'pry'
+
 class BankrollsController < ApplicationController
 	helper_method :current_user
 
@@ -15,13 +17,14 @@ class BankrollsController < ApplicationController
 		@bankroll = Bankroll.new
 	end
 
-	def index
-		@bankroll = Bankroll.find(current_user)
+	def edit
+		@bankroll = current_user.bankroll
 	end
 
 	def update
-		@bankroll = Bankroll.update!(bankroll_params)
-
+		@bankroll = current_user.bankroll
+		@bankroll.update_attribute(:total, bankroll_params[:total])
+		redirect_to root_path
 	end
 
 	private

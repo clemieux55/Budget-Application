@@ -4,3 +4,13 @@ div.add_bankroll {
 	width: 100%;
 } 
 
+input#bankroll_total {
+	width: 10%;
+	margin: auto;
+	height: 36px;
+
+}
+
+div.input {
+	padding: 10px;
+}

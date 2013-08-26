@@ -1,9 +1,7 @@
 class Bankroll < ActiveRecord::Base
 
-	validates :total, presence: true
-	validates :user, presence: true
+	validates :total, numericality: { only_integer: true }
+	validates :user_id, uniqueness: true
 	belongs_to :user
-
-
 
 end

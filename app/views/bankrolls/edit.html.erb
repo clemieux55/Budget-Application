@@ -1,0 +1,7 @@
+<div class="add_bankroll">
+	<p>Update Bankroll:</p>
+	<%= simple_form_for @bankroll, controller: :bankrolls, action: :update, id: "bankroll_update" do |f| %>
+		<%= f.input :total %>
+		<%= f.submit "Complete", id: "update" %>
+	<% end %>
+</div>

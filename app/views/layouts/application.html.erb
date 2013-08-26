@@ -57,7 +57,11 @@
           <%= link_to 'Sign out', destroy_user_session_path, method: :delete, id: 'sign_out' %>
         </li>
          <li>
-          <%= link_to 'Bankroll', new_bankroll_path, id: 'bankroll' %>
+          <% unless current_user.bankroll %>
+              <%= link_to 'Bankroll', new_bankroll_path, id: 'bankroll' %>
+            <% else %>
+              <%= link_to "Bankroll", edit_bankroll_path(current_user.bankroll) , id: 'bankroll' %>
+          <% end %>
         </li>
 
       </ul>
